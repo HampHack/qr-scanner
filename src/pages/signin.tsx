@@ -13,7 +13,10 @@ export default function Home() {
       body: JSON.stringify({ id: qr?.getText() }),
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((reg) => {
+        alert(
+          `Signed in ${reg[0].fields.Name}! T-Shirt Size: ${reg[0].fields["T-Shirt Size"]}`
+        );
         setQr(undefined);
       });
   };
